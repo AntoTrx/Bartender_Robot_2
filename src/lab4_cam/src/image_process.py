@@ -55,14 +55,14 @@ def ros_to_np_img(ros_img_msg):
 TOT_CLICKS = 4
 
 if __name__ == '__main__':
-  
+
   # Waits for the image service to become available
   rospy.wait_for_service('last_image')
-  
+
   # Initializes the image processing node
   rospy.init_node('image_processing_node')
-  
-  # Creates a function used to call the 
+
+  # Creates a function used to call the
   # image capture service: ImageSrv is the/usb_cam/image_raw:
     if(event == cv2.EVENT_LBUTTONUP):
       point = (x,y)
@@ -76,7 +76,7 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
       print 'Break from raw_input'
       break
-    
+
     try:
       # Request the last image from the image service
       # And extract the ROS Image from the ImageSrv service
@@ -109,7 +109,7 @@ if __name__ == '__main__':
       uv = np.array(points).T
 
 # === YOUR CODE HERE ===========================================================
-      
+
       # This is placeholder code that will draw a 4 by 3 grid in the corner of
       # the image
       nx = 4
@@ -117,7 +117,7 @@ if __name__ == '__main__':
       H = np.eye(3)
 
 # ==============================================================================
-      
+
       # Check the produced homography matrix
       check_homography(np_image, H, nx, ny)
 
@@ -127,7 +127,7 @@ if __name__ == '__main__':
         if rospy.is_shutdown():
           raise KeyboardInterrupt
         key = cv2.waitKey(100)
-      
+
       # When done, get rid of windows and start over
       # cv2.destroyAllWindows()
 
@@ -138,7 +138,7 @@ if __name__ == '__main__':
     # Catch if anything went wrong with the Image Service
     except rospy.ServiceException, e:
       print "image_process: Service call failed: %s"%e
-    
+
   cv2.destroyAllWindows()
 grid by projecting x,y coordinates
 # of tile corners to u,v image coordinates
@@ -169,14 +169,14 @@ def ros_to_np_img(ros_img_msg):
 TOT_CLICKS = 4
 
 if __name__ == '__main__':
-  
+
   # Waits for the image service to become available
   rospy.wait_for_service('last_image')
-  
+
   # Initializes the image processing node
   rospy.init_node('image_processing_node')
-  
-  # Creates a function used to call the 
+
+  # Creates a function used to call the
   # image capture service: ImageSrv is the service type
   last_image_service = rospy.ServiceProxy('last_image', ImageSrv)
 
@@ -198,7 +198,7 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
       print 'Break from raw_input'
       break
-    
+
     try:
       # Request the last image from the image service
       # And extract the ROS Image from the ImageSrv service
@@ -231,7 +231,7 @@ if __name__ == '__main__':
       uv = np.array(points).T
 
 # === YOUR CODE HERE ===========================================================
-      
+
       # This is placeholder code that will draw a 4 by 3 grid in the corner of
       # the image
       nx = 4
@@ -239,7 +239,7 @@ if __name__ == '__main__':
       H = np.eye(3)
 
 # ==============================================================================
-      
+
       # Check the produced homography matrix
       check_homography(np_image, H, nx, ny)
 
@@ -249,7 +249,7 @@ if __name__ == '__main__':
         if rospy.is_shutdown():
           raise KeyboardInterrupt
         key = cv2.waitKey(100)
-      
+
       # When done, get rid of windows and start over
       # cv2.destroyAllWindows()
 
@@ -260,5 +260,5 @@ if __name__ == '__main__':
     # Catch if anything went wrong with the Image Service
     except rospy.ServiceException, e:
       print "image_process: Service call failed: %s"%e
-    
+
   cv2.destroyAllWindows()

@@ -48,3 +48,4 @@ class ImgService:
 if __name__ == '__main__':
   node = ImgService()
   node.run()
+ 
