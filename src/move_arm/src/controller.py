@@ -97,7 +97,7 @@ class Controller(object):
         self._limb.set_joint_velocities(dic_vel)
         rospy.sleep(0.1)
 
-    def execute_plan(self, path, timeout=100.0, log=True):
+    def execute_plan(self, path, timeout=100.0, log=False):
         """
         Execute a given path
 
@@ -264,7 +264,7 @@ class Controller(object):
         # self._Kp
         # and so on. This is better practice than hard-coding
 
-        u = u_ff 
+        u = u_ff +self._Kd*ed + self._Kp*error + self._Ki * self._IntError
 
         ###################### YOUR CODE END ##########################
 

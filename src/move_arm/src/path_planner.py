@@ -10,6 +10,8 @@ import moveit_commander
 from moveit_msgs.msg import OrientationConstraint, Constraints, CollisionObject
 from geometry_msgs.msg import PoseStamped
 from shape_msgs.msg import SolidPrimitive
+from intera_core_msgs.srv import SolvePositionIK, SolvePositionIKRequest
+from sawyer_kinematics.sawyer_kinematics.sawyer_kinematics import Sawyer
 
 class PathPlanner(object):
     """
@@ -38,6 +40,8 @@ class PathPlanner(object):
             For Sawyer, this would be 'right_arm'
         """
 
+        self._Robot_bis = Sawyer()  
+
         # If the node is shutdown, call this function    
         rospy.on_shutdown(self.shutdown)
 
@@ -57,7 +61,7 @@ class PathPlanner(object):
         self._group = moveit_commander.MoveGroupCommander(group_name)
 
         # Set the maximum time MoveIt will try to plan before giving up
-        self._group.set_planning_time(5)
+        self._group.set_planning_time(10)
 
         # Set the bounds of the workspace
         self._group.set_workspace([-2, -2, -2, 2, 2, 2])
@@ -86,8 +90,10 @@ class PathPlanner(object):
         path: A moveit_msgs/RobotTrajectory path
         """
 
-        self._group.set_pose_target(target)
-        self._group.set_start_state_to_current_state()
+        # self._group.set_pose_target(target)
+        # self._group.set_start_state_to_current_state()
+
+        
 
         constraints = Constraints()
         constraints.orientation_constraints = orientation_constraints
