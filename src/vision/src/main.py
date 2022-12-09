@@ -10,10 +10,13 @@ import message_filters
 import ros_numpy
 import tf
 
-
+import object_msg
+import object_space_msg
 
 def main():
-    rospy.init_node('tf2_listener')
+    rospy.init_node('targets')
+
+
 
     r.rospy.Rate(1000)
 

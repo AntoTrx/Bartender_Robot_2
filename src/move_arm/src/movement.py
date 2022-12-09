@@ -11,6 +11,8 @@ import traceback
 
 from moveit_msgs.msg import OrientationConstraint
 from geometry_msgs.msg import PoseStamped
+import object_msg
+import object_space_msg
 
 from path_planner import PathPlanner
 
@@ -83,6 +85,21 @@ def pour():
     # rotate gripper back
 
 def main():
+    # get cup positions from AR_track_alvar (as object_space_msg)
+    """
+    object_msg:
+        string name
+        float32 x
+        float32 y
+        float32 z
+
+    object_space_msg
+        object_msg target
+        object_msg a
+        object_msg b
+    """
+
+    # use positions to move cups
 
 
 
