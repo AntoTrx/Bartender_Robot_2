@@ -18,7 +18,7 @@ class PathPlanner(object):
     """
     Path Planning Functionality for Baxter/Sawyer
 
-    We make this a class rather than a script because it bundles up 
+    We make this a class rather than a script because it bundles up
     all the code relating to planning in a nice way thus, we can
     easily use the code in different places. This is a staple of
     good object-oriented programming
@@ -41,9 +41,13 @@ class PathPlanner(object):
             For Sawyer, this would be 'right_arm'
         """
 
+<<<<<<< HEAD
         self._Robot_bis = Sawyer()  
 
         # If the node is shutdown, call this function    
+=======
+        # If the node is shutdown, call this function
+>>>>>>> d6628f36ffd6ea4c7203971fa75ae16a95ec0404
         rospy.on_shutdown(self.shutdown)
 
         # Initialize moveit_commander
@@ -62,7 +66,11 @@ class PathPlanner(object):
         self._group = moveit_commander.MoveGroupCommander(group_name)
 
         # Set the maximum time MoveIt will try to plan before giving up
+<<<<<<< HEAD
         self._group.set_planning_time(10)
+=======
+        self._group.set_planning_time(50)
+>>>>>>> d6628f36ffd6ea4c7203971fa75ae16a95ec0404
 
         # Set the bounds of the workspace
         self._group.set_workspace([-2, -2, -2, 2, 2, 2])
@@ -124,7 +132,7 @@ class PathPlanner(object):
         size: 3x' ndarray; (x, y, z) size of the box (in the box's body frame)
         name: unique name of the obstacle (used for adding and removing)
         pose: geometry_msgs/PoseStamped object for the CoM of the box in relation to some frame
-        """    
+        """
 
         # Create a CollisionObject, which will be added to the planning scene
         co = CollisionObject()

@@ -53,11 +53,11 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  object_msg.msg
+  object_space_msg.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -74,10 +74,19 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
+<<<<<<< HEAD:ar_vision/CMakeLists.txt
 # generate_messages(
 #   DEPENDENCIES
 #   geometry_msgs#   intera_core_msgs#   sensor_msgs#   std_msgs
 # )
+=======
+generate_messages(
+  DEPENDENCIES
+  sensor_msgs
+  std_msgs
+  object_msg
+)
+>>>>>>> d6628f36ffd6ea4c7203971fa75ae16a95ec0404:src/vision/CMakeLists.txt
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -109,10 +118,17 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+<<<<<<< HEAD:ar_vision/CMakeLists.txt
 #  INCLUDE_DIRS include
 #  LIBRARIES ar_vision
 #  CATKIN_DEPENDS cv_bridge geometry_msgs intera_core_msgs message_generation roscpp rospy sensor_msgs std_msgs std_srvs
 #  DEPENDS system_lib
+=======
+  INCLUDE_DIRS include
+  LIBRARIES vision
+  CATKIN_DEPENDS camera_info_manager ffmpeg image_transport roscpp sensor_msgs std_msgs std_srvs message_runtime
+  DEPENDS system_lib
+>>>>>>> d6628f36ffd6ea4c7203971fa75ae16a95ec0404:src/vision/CMakeLists.txt
 )
 
 ###########
