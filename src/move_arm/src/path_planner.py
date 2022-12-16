@@ -11,6 +11,7 @@ from moveit_msgs.msg import OrientationConstraint, Constraints, CollisionObject
 from geometry_msgs.msg import PoseStamped
 from shape_msgs.msg import SolidPrimitive
 from intera_core_msgs.srv import SolvePositionIK, SolvePositionIKRequest
+from intera_interface import Limb
 from sawyer_kinematics.sawyer_kinematics.sawyer_kinematics import Sawyer
 
 class PathPlanner(object):
@@ -93,7 +94,8 @@ class PathPlanner(object):
         # self._group.set_pose_target(target)
         # self._group.set_start_state_to_current_state()
 
-        
+        # plan = 
+
 
         constraints = Constraints()
         constraints.orientation_constraints = orientation_constraints

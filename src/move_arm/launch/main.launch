@@ -1,0 +1,25 @@
+<!--
+    This launch file is to launch most of the needed nodes. From top to bottom, it launchs the ar_track_alvar pkg, sawyer_moveit pkg with gripper, sawyer sdk intera_interface oint_trajectory_action_server and service server target.
+
+    <node pkg='move_arm' name="movement" type="move_cups.py" output="screen" />
+
+        <node pkg='move_arm' name="vision_publish" type="vision_publish.py" output="screen" />
+
+    <node pkg="intera_interface" name="joint_trajectory_action_server" type="joint_trajectory_action_server.py" output="screen" />
+
+    <node pkg="move_arm" name="find_cups" type="find_cups.py" output="screen" />
+
+     
+-->
+
+<launch>
+
+    <arg name="arg1" value="true"/>
+    <include file="$(find move_arm)/launch/ar_track.launch"/>
+
+    
+    <node pkg="move_arm" name="movement" type="main.py" output="screen" />
+
+
+
+</launch>

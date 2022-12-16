@@ -56,29 +56,17 @@ CMAKE_BINARY_DIR = /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartende
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -101,16 +89,29 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
-.PHONY : edit_cache/fast
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -123,17 +124,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,81 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+move_arm/CMakeFiles/move_arm_genpy.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_genpy.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_genpy.dir/rule
+
+# Convenience name for target.
+move_arm_genpy: move_arm/CMakeFiles/move_arm_genpy.dir/rule
+
+.PHONY : move_arm_genpy
+
+# fast build rule for target.
+move_arm_genpy/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_genpy.dir/build.make move_arm/CMakeFiles/move_arm_genpy.dir/build
+.PHONY : move_arm_genpy/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_generate_messages_py.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_generate_messages_py.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_generate_messages_py.dir/rule
+
+# Convenience name for target.
+move_arm_generate_messages_py: move_arm/CMakeFiles/move_arm_generate_messages_py.dir/rule
+
+.PHONY : move_arm_generate_messages_py
+
+# fast build rule for target.
+move_arm_generate_messages_py/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_generate_messages_py.dir/build.make move_arm/CMakeFiles/move_arm_generate_messages_py.dir/build
+.PHONY : move_arm_generate_messages_py/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_gennodejs.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_gennodejs.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_gennodejs.dir/rule
+
+# Convenience name for target.
+move_arm_gennodejs: move_arm/CMakeFiles/move_arm_gennodejs.dir/rule
+
+.PHONY : move_arm_gennodejs
+
+# fast build rule for target.
+move_arm_gennodejs/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_gennodejs.dir/build.make move_arm/CMakeFiles/move_arm_gennodejs.dir/build
+.PHONY : move_arm_gennodejs/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_generate_messages_nodejs.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_generate_messages_nodejs.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+move_arm_generate_messages_nodejs: move_arm/CMakeFiles/move_arm_generate_messages_nodejs.dir/rule
+
+.PHONY : move_arm_generate_messages_nodejs
+
+# fast build rule for target.
+move_arm_generate_messages_nodejs/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_generate_messages_nodejs.dir/build.make move_arm/CMakeFiles/move_arm_generate_messages_nodejs.dir/build
+.PHONY : move_arm_generate_messages_nodejs/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_genlisp.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_genlisp.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_genlisp.dir/rule
+
+# Convenience name for target.
+move_arm_genlisp: move_arm/CMakeFiles/move_arm_genlisp.dir/rule
+
+.PHONY : move_arm_genlisp
+
+# fast build rule for target.
+move_arm_genlisp/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_genlisp.dir/build.make move_arm/CMakeFiles/move_arm_genlisp.dir/build
+.PHONY : move_arm_genlisp/fast
+
+# Convenience name for target.
 move_arm/CMakeFiles/intera_core_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/intera_core_msgs_generate_messages_nodejs.dir/rule
 .PHONY : move_arm/CMakeFiles/intera_core_msgs_generate_messages_nodejs.dir/rule
@@ -181,6 +256,36 @@ intera_core_msgs_generate_messages_nodejs: move_arm/CMakeFiles/intera_core_msgs_
 intera_core_msgs_generate_messages_nodejs/fast:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/intera_core_msgs_generate_messages_nodejs.dir/build.make move_arm/CMakeFiles/intera_core_msgs_generate_messages_nodejs.dir/build
 .PHONY : intera_core_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/rule
+.PHONY : move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+intera_motion_msgs_generate_messages_eus: move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/rule
+
+.PHONY : intera_motion_msgs_generate_messages_eus
+
+# fast build rule for target.
+intera_motion_msgs_generate_messages_eus/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/build
+.PHONY : intera_motion_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/rule
+.PHONY : move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+intera_core_msgs_generate_messages_lisp: move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : intera_core_msgs_generate_messages_lisp
+
+# fast build rule for target.
+intera_core_msgs_generate_messages_lisp/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/build.make move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/build
+.PHONY : intera_core_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 move_arm/CMakeFiles/intera_core_msgs_generate_messages_eus.dir/rule:
@@ -226,6 +331,21 @@ intera_core_msgs_generate_messages_cpp: move_arm/CMakeFiles/intera_core_msgs_gen
 intera_core_msgs_generate_messages_cpp/fast:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/intera_core_msgs_generate_messages_cpp.dir/build.make move_arm/CMakeFiles/intera_core_msgs_generate_messages_cpp.dir/build
 .PHONY : intera_core_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_generate_messages_lisp.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_generate_messages_lisp.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+move_arm_generate_messages_lisp: move_arm/CMakeFiles/move_arm_generate_messages_lisp.dir/rule
+
+.PHONY : move_arm_generate_messages_lisp
+
+# fast build rule for target.
+move_arm_generate_messages_lisp/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_generate_messages_lisp.dir/build.make move_arm/CMakeFiles/move_arm_generate_messages_lisp.dir/build
+.PHONY : move_arm_generate_messages_lisp/fast
 
 # Convenience name for target.
 move_arm/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/rule:
@@ -286,21 +406,6 @@ baxter_maintenance_msgs_generate_messages_eus: move_arm/CMakeFiles/baxter_mainte
 baxter_maintenance_msgs_generate_messages_eus/fast:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/baxter_maintenance_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/baxter_maintenance_msgs_generate_messages_eus.dir/build
 .PHONY : baxter_maintenance_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-.PHONY : move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_eus: move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_eus
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 move_arm/CMakeFiles/control_msgs_generate_messages_eus.dir/rule:
@@ -393,66 +498,6 @@ baxter_core_msgs_generate_messages_py/fast:
 .PHONY : baxter_core_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/rule
-.PHONY : move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-intera_core_msgs_generate_messages_py: move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/rule
-
-.PHONY : intera_core_msgs_generate_messages_py
-
-# fast build rule for target.
-intera_core_msgs_generate_messages_py/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/build.make move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/build
-.PHONY : intera_core_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-move_arm/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : move_arm/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: move_arm/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/_catkin_empty_exported_target.dir/build.make move_arm/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-# Convenience name for target.
-move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/rule
-.PHONY : move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-baxter_core_msgs_generate_messages_nodejs: move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : baxter_core_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-baxter_core_msgs_generate_messages_nodejs/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/build.make move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/build
-.PHONY : baxter_core_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
-.PHONY : move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-shape_msgs_generate_messages_cpp: move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : shape_msgs_generate_messages_cpp
-
-# fast build rule for target.
-shape_msgs_generate_messages_cpp/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build.make move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build
-.PHONY : shape_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
 move_arm/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
 .PHONY : move_arm/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
@@ -468,21 +513,6 @@ control_msgs_generate_messages_lisp/fast:
 .PHONY : control_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/rule
-.PHONY : move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-intera_core_msgs_generate_messages_lisp: move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : intera_core_msgs_generate_messages_lisp
-
-# fast build rule for target.
-intera_core_msgs_generate_messages_lisp/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/build.make move_arm/CMakeFiles/intera_core_msgs_generate_messages_lisp.dir/build
-.PHONY : intera_core_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
 move_arm/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
 .PHONY : move_arm/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
@@ -496,36 +526,6 @@ control_msgs_generate_messages_nodejs: move_arm/CMakeFiles/control_msgs_generate
 control_msgs_generate_messages_nodejs/fast:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build.make move_arm/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build
 .PHONY : control_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/rule
-.PHONY : move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-baxter_core_msgs_generate_messages_eus: move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/rule
-
-.PHONY : baxter_core_msgs_generate_messages_eus
-
-# fast build rule for target.
-baxter_core_msgs_generate_messages_eus/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/build
-.PHONY : baxter_core_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
-.PHONY : move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-moveit_msgs_generate_messages_cpp: move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : moveit_msgs_generate_messages_cpp
-
-# fast build rule for target.
-moveit_msgs_generate_messages_cpp/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/build.make move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/build
-.PHONY : moveit_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 move_arm/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
@@ -648,6 +648,51 @@ baxter_maintenance_msgs_generate_messages_nodejs/fast:
 .PHONY : baxter_maintenance_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/rule
+.PHONY : move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+intera_core_msgs_generate_messages_py: move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/rule
+
+.PHONY : intera_core_msgs_generate_messages_py
+
+# fast build rule for target.
+intera_core_msgs_generate_messages_py/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/build.make move_arm/CMakeFiles/intera_core_msgs_generate_messages_py.dir/build
+.PHONY : intera_core_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
+.PHONY : move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+moveit_msgs_generate_messages_cpp: move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : moveit_msgs_generate_messages_cpp
+
+# fast build rule for target.
+moveit_msgs_generate_messages_cpp/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/build.make move_arm/CMakeFiles/moveit_msgs_generate_messages_cpp.dir/build
+.PHONY : moveit_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/rule
+.PHONY : move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+baxter_core_msgs_generate_messages_eus: move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/rule
+
+.PHONY : baxter_core_msgs_generate_messages_eus
+
+# fast build rule for target.
+baxter_core_msgs_generate_messages_eus/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/baxter_core_msgs_generate_messages_eus.dir/build
+.PHONY : baxter_core_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
 move_arm/CMakeFiles/baxter_interface_gencfg.dir/rule:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/baxter_interface_gencfg.dir/rule
 .PHONY : move_arm/CMakeFiles/baxter_interface_gencfg.dir/rule
@@ -676,21 +721,6 @@ trajectory_msgs_generate_messages_py: move_arm/CMakeFiles/trajectory_msgs_genera
 trajectory_msgs_generate_messages_py/fast:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make move_arm/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
 .PHONY : trajectory_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/rule
-.PHONY : move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-intera_motion_msgs_generate_messages_eus: move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/rule
-
-.PHONY : intera_motion_msgs_generate_messages_eus
-
-# fast build rule for target.
-intera_motion_msgs_generate_messages_eus/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/intera_motion_msgs_generate_messages_eus.dir/build
-.PHONY : intera_motion_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 move_arm/CMakeFiles/intera_motion_msgs_generate_messages_lisp.dir/rule:
@@ -783,6 +813,81 @@ moveit_msgs_generate_messages_nodejs/fast:
 .PHONY : moveit_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/rule
+.PHONY : move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+baxter_core_msgs_generate_messages_nodejs: move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : baxter_core_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+baxter_core_msgs_generate_messages_nodejs/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/build.make move_arm/CMakeFiles/baxter_core_msgs_generate_messages_nodejs.dir/build
+.PHONY : baxter_core_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+.PHONY : move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+shape_msgs_generate_messages_cpp: move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : shape_msgs_generate_messages_cpp
+
+# fast build rule for target.
+shape_msgs_generate_messages_cpp/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build.make move_arm/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build
+.PHONY : shape_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+.PHONY : move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+shape_msgs_generate_messages_eus: move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+
+.PHONY : shape_msgs_generate_messages_eus
+
+# fast build rule for target.
+shape_msgs_generate_messages_eus/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/build
+.PHONY : shape_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+.PHONY : move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_eus: move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_eus
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_eus/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+.PHONY : trajectory_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_geneus.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_geneus.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_geneus.dir/rule
+
+# Convenience name for target.
+move_arm_geneus: move_arm/CMakeFiles/move_arm_geneus.dir/rule
+
+.PHONY : move_arm_geneus
+
+# fast build rule for target.
+move_arm_geneus/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_geneus.dir/build.make move_arm/CMakeFiles/move_arm_geneus.dir/build
+.PHONY : move_arm_geneus/fast
+
+# Convenience name for target.
 move_arm/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
 .PHONY : move_arm/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
@@ -826,6 +931,36 @@ shape_msgs_generate_messages_nodejs: move_arm/CMakeFiles/shape_msgs_generate_mes
 shape_msgs_generate_messages_nodejs/fast:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build.make move_arm/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build
 .PHONY : shape_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_generate_messages.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_generate_messages.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_generate_messages.dir/rule
+
+# Convenience name for target.
+move_arm_generate_messages: move_arm/CMakeFiles/move_arm_generate_messages.dir/rule
+
+.PHONY : move_arm_generate_messages
+
+# fast build rule for target.
+move_arm_generate_messages/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_generate_messages.dir/build.make move_arm/CMakeFiles/move_arm_generate_messages.dir/build
+.PHONY : move_arm_generate_messages/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_generate_messages_eus.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_generate_messages_eus.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+move_arm_generate_messages_eus: move_arm/CMakeFiles/move_arm_generate_messages_eus.dir/rule
+
+.PHONY : move_arm_generate_messages_eus
+
+# fast build rule for target.
+move_arm_generate_messages_eus/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_generate_messages_eus.dir/build.make move_arm/CMakeFiles/move_arm_generate_messages_eus.dir/build
+.PHONY : move_arm_generate_messages_eus/fast
 
 # Convenience name for target.
 move_arm/CMakeFiles/shape_msgs_generate_messages_py.dir/rule:
@@ -873,6 +1008,21 @@ object_recognition_msgs_generate_messages_nodejs/fast:
 .PHONY : object_recognition_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+move_arm/CMakeFiles/move_arm_gencpp.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_gencpp.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_gencpp.dir/rule
+
+# Convenience name for target.
+move_arm_gencpp: move_arm/CMakeFiles/move_arm_gencpp.dir/rule
+
+.PHONY : move_arm_gencpp
+
+# fast build rule for target.
+move_arm_gencpp/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_gencpp.dir/build.make move_arm/CMakeFiles/move_arm_gencpp.dir/build
+.PHONY : move_arm_gencpp/fast
+
+# Convenience name for target.
 move_arm/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
 .PHONY : move_arm/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
@@ -901,6 +1051,21 @@ octomap_msgs_generate_messages_cpp: move_arm/CMakeFiles/octomap_msgs_generate_me
 octomap_msgs_generate_messages_cpp/fast:
 	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/build.make move_arm/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/build
 .PHONY : octomap_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+move_arm/CMakeFiles/move_arm_generate_messages_cpp.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/move_arm_generate_messages_cpp.dir/rule
+.PHONY : move_arm/CMakeFiles/move_arm_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+move_arm_generate_messages_cpp: move_arm/CMakeFiles/move_arm_generate_messages_cpp.dir/rule
+
+.PHONY : move_arm_generate_messages_cpp
+
+# fast build rule for target.
+move_arm_generate_messages_cpp/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/move_arm_generate_messages_cpp.dir/build.make move_arm/CMakeFiles/move_arm_generate_messages_cpp.dir/build
+.PHONY : move_arm_generate_messages_cpp/fast
 
 # Convenience name for target.
 move_arm/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule:
@@ -948,19 +1113,19 @@ octomap_msgs_generate_messages_py/fast:
 .PHONY : octomap_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
-.PHONY : move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+move_arm/CMakeFiles/_move_arm_generate_messages_check_deps_target.dir/rule:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f CMakeFiles/Makefile2 move_arm/CMakeFiles/_move_arm_generate_messages_check_deps_target.dir/rule
+.PHONY : move_arm/CMakeFiles/_move_arm_generate_messages_check_deps_target.dir/rule
 
 # Convenience name for target.
-shape_msgs_generate_messages_eus: move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+_move_arm_generate_messages_check_deps_target: move_arm/CMakeFiles/_move_arm_generate_messages_check_deps_target.dir/rule
 
-.PHONY : shape_msgs_generate_messages_eus
+.PHONY : _move_arm_generate_messages_check_deps_target
 
 # fast build rule for target.
-shape_msgs_generate_messages_eus/fast:
-	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/build.make move_arm/CMakeFiles/shape_msgs_generate_messages_eus.dir/build
-.PHONY : shape_msgs_generate_messages_eus/fast
+_move_arm_generate_messages_check_deps_target/fast:
+	cd /home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build && $(MAKE) -f move_arm/CMakeFiles/_move_arm_generate_messages_check_deps_target.dir/build.make move_arm/CMakeFiles/_move_arm_generate_messages_check_deps_target.dir/build
+.PHONY : _move_arm_generate_messages_check_deps_target/fast
 
 # Help Target
 help:
@@ -968,15 +1133,26 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install"
+	@echo "... list_install_components"
+	@echo "... test"
+	@echo "... move_arm_genpy"
+	@echo "... move_arm_generate_messages_py"
+	@echo "... move_arm_gennodejs"
+	@echo "... move_arm_generate_messages_nodejs"
+	@echo "... move_arm_genlisp"
 	@echo "... intera_core_msgs_generate_messages_nodejs"
+	@echo "... intera_motion_msgs_generate_messages_eus"
+	@echo "... install/local"
+	@echo "... intera_core_msgs_generate_messages_lisp"
 	@echo "... intera_core_msgs_generate_messages_eus"
 	@echo "... baxter_core_msgs_generate_messages_lisp"
 	@echo "... intera_core_msgs_generate_messages_cpp"
+	@echo "... move_arm_generate_messages_lisp"
 	@echo "... baxter_maintenance_msgs_generate_messages_cpp"
 	@echo "... baxter_maintenance_msgs_generate_messages_py"
 	@echo "... baxter_maintenance_msgs_generate_messages_lisp"
 	@echo "... baxter_maintenance_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... control_msgs_generate_messages_eus"
 	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... object_recognition_msgs_generate_messages_cpp"
@@ -984,16 +1160,8 @@ help:
 	@echo "... octomap_msgs_generate_messages_eus"
 	@echo "... install/strip"
 	@echo "... baxter_core_msgs_generate_messages_py"
-	@echo "... intera_core_msgs_generate_messages_py"
-	@echo "... _catkin_empty_exported_target"
-	@echo "... baxter_core_msgs_generate_messages_nodejs"
-	@echo "... shape_msgs_generate_messages_cpp"
 	@echo "... control_msgs_generate_messages_lisp"
-	@echo "... intera_core_msgs_generate_messages_lisp"
-	@echo "... install/local"
 	@echo "... control_msgs_generate_messages_nodejs"
-	@echo "... baxter_core_msgs_generate_messages_eus"
-	@echo "... moveit_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... baxter_core_msgs_generate_messages_cpp"
 	@echo "... intera_motion_msgs_generate_messages_cpp"
@@ -1002,32 +1170,40 @@ help:
 	@echo "... moveit_msgs_generate_messages_py"
 	@echo "... object_recognition_msgs_generate_messages_lisp"
 	@echo "... baxter_maintenance_msgs_generate_messages_nodejs"
+	@echo "... intera_core_msgs_generate_messages_py"
+	@echo "... moveit_msgs_generate_messages_cpp"
+	@echo "... baxter_core_msgs_generate_messages_eus"
 	@echo "... baxter_interface_gencfg"
 	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... list_install_components"
-	@echo "... intera_motion_msgs_generate_messages_eus"
 	@echo "... intera_motion_msgs_generate_messages_lisp"
 	@echo "... intera_motion_msgs_generate_messages_py"
 	@echo "... moveit_msgs_generate_messages_eus"
 	@echo "... moveit_msgs_generate_messages_lisp"
 	@echo "... control_msgs_generate_messages_cpp"
 	@echo "... moveit_msgs_generate_messages_nodejs"
+	@echo "... baxter_core_msgs_generate_messages_nodejs"
+	@echo "... shape_msgs_generate_messages_cpp"
+	@echo "... rebuild_cache"
+	@echo "... shape_msgs_generate_messages_eus"
+	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... move_arm_geneus"
 	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... shape_msgs_generate_messages_lisp"
 	@echo "... shape_msgs_generate_messages_nodejs"
+	@echo "... move_arm_generate_messages"
+	@echo "... move_arm_generate_messages_eus"
 	@echo "... shape_msgs_generate_messages_py"
 	@echo "... object_recognition_msgs_generate_messages_eus"
 	@echo "... object_recognition_msgs_generate_messages_nodejs"
+	@echo "... edit_cache"
+	@echo "... move_arm_gencpp"
 	@echo "... object_recognition_msgs_generate_messages_py"
 	@echo "... octomap_msgs_generate_messages_cpp"
+	@echo "... move_arm_generate_messages_cpp"
 	@echo "... octomap_msgs_generate_messages_lisp"
 	@echo "... octomap_msgs_generate_messages_nodejs"
 	@echo "... octomap_msgs_generate_messages_py"
-	@echo "... test"
-	@echo "... edit_cache"
-	@echo "... shape_msgs_generate_messages_eus"
-	@echo "... rebuild_cache"
-	@echo "... install"
+	@echo "... _move_arm_generate_messages_check_deps_target"
 .PHONY : help
 
 

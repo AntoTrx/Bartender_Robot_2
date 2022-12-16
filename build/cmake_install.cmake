@@ -133,7 +133,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build/gtest/cmake_install.cmake")
   include("/home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build/ar_track_alvar/ar_track_alvar_msgs/cmake_install.cmake")
   include("/home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build/ar_track_alvar/ar_track_alvar/cmake_install.cmake")
-  include("/home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build/vision/cmake_install.cmake")
   include("/home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/build/move_arm/cmake_install.cmake")
 
 endif()

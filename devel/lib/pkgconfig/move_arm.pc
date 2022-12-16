@@ -3,6 +3,6 @@ prefix=/home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/deve
 Name: move_arm
 Description: Description of move_arm
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/cc/ee106a/fa22/class/ee106a-aee/ros_workspaces/bartender_robot/devel/include
 Libs: -L${prefix}/lib 
 Requires: 
