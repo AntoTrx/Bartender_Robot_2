@@ -1,36 +1,24 @@
 #!/usr/bin/env python
 """
-Path Planner Class for Lab 7
-Author: Valmik Prabhu
+Path Planner Class for Lab 7, we have tuned in order to use both Sawyer_kinematics' functions
+and Intera_interface motions' functions.
 """
 
 import sys
 import rospy
 import moveit_commander
-from moveit_msgs.msg import OrientationConstraint, Constraints, CollisionObject
-from geometry_msgs.msg import PoseStamped
-from shape_msgs.msg import SolidPrimitive
-from intera_core_msgs.srv import SolvePositionIK, SolvePositionIKRequest
 from intera_interface import Limb
 from sawyer_kinematics.sawyer_kinematics.sawyer_kinematics import Sawyer
 
 class PathPlanner(object):
     """
-    Path Planning Functionality for Baxter/Sawyer
-
     We make this a class rather than a script because it bundles up 
     all the code relating to planning in a nice way thus, we can
     easily use the code in different places. This is a staple of
     good object-oriented programming
 
-    Fields:
-    _robot: moveit_commander.RobotCommander; for interfacing with the robot
-    _scene: moveit_commander.PlanningSceneInterface; the planning scene stores a representation of the environment
-    _group: moveit_commander.MoveGroupCommander; the move group is moveit's primary planning class
-    _planning_scene_publisher: ros publisher; publishes to the planning scene
-
-
     """
+
     def __init__(self, group_name):
         """
         Constructor.
@@ -40,15 +28,14 @@ class PathPlanner(object):
             For Baxter, this would be 'left_arm' or 'right_arm'
             For Sawyer, this would be 'right_arm'
         """
-
-
-
+        # Create a Saywer objet, in order to use Intera's IK solver
         self._robot_bis = Sawyer()
 
+        # Create a Limb objet, in order to use Intera's IK solver
         self._limb = Limb('right')
 
+        # Create a plan, that is a dictionary of the different angles with a value on it
         self._plan = self._limb.joint_angles()
-
 
         # If the node is shutdown, call this function    
         rospy.on_shutdown(self.shutdown)
@@ -56,25 +43,6 @@ class PathPlanner(object):
         # Initialize moveit_commander
         moveit_commander.roscpp_initialize(sys.argv)
 
-        # # Initialize the robot
-        # self._robot = moveit_commander.RobotCommander()
-
-        # # Initialize the planning scene
-        # self._scene = moveit_commander.PlanningSceneInterface()
-
-        # This publishes updates to the planning scene
-        # self._planning_scene_publisher = rospy.Publisher('/collision_object', CollisionObject, queue_size=10)
-
-        # # Instantiate a move group
-        # self._group = moveit_commander.MoveGroupCommander(group_name)
-
-        # # Set the maximum time MoveIt will try to plan before giving up
-        # self._group.set_planning_time(10)
-
-        # # Set the bounds of the workspace
-        # self._group.set_workspace([-2, -2, -2, 2, 2, 2])
-
-        # Sleep for a bit to ensure that all inititialization has finished
         rospy.sleep(0.5)
 
     def shutdown(self):
@@ -99,17 +67,7 @@ class PathPlanner(object):
         path: A moveit_msgs/RobotTrajectory path
         """
 
-        # self._group.set_pose_target(target)
-        # self._group.set_start_state_to_current_state()
-
         plan = self._robot_bis.Inverse_Kinematics(self._limb, target)
-
-
-        # limb.endpoint_pose
-
-        # constraints = Constraints()
-        # constraints.orientation_constraints = orientation_constraints
-        # self._group.set_path_constraints(constraints)
 
         self._plan = plan
 
@@ -127,45 +85,3 @@ class PathPlanner(object):
 
         return True
 
-
-    # def add_box_obstacle(self, size, name, pose):
-    #     """
-    #     Adds a rectangular prism obstacle to the planning scene
-
-    #     Inputs:
-    #     size: 3x' ndarray; (x, y, z) size of the box (in the box's body frame)
-    #     name: unique name of the obstacle (used for adding and removing)
-    #     pose: geometry_msgs/PoseStamped object for the CoM of the box in relation to some frame
-    #     """    
-
-    #     # Create a CollisionObject, which will be added to the planning scene
-    #     co = CollisionObject()
-    #     co.operation = CollisionObject.ADD
-    #     co.id = name
-    #     co.header = pose.header
-
-    #     # Create a box primitive, which will be inside the CollisionObject
-    #     box = SolidPrimitive()
-    #     box.type = SolidPrimitive.BOX
-    #     box.dimensions = size
-
-    #     # Fill the collision object with primitive(s)
-    #     co.primitives = [box]
-    #     co.primitive_poses = [pose.pose]
-
-    #     # Publish the object
-    #     self._planning_scene_publisher.publish(co)
-
-    # def remove_obstacle(self, name):
-    #     """
-    #     Removes an obstacle from the planning scene
-
-    #     Inputs:
-    #     name: unique name of the obstacle
-    #     """
-
-    #     co = CollisionObject()
-    #     co.operation = CollisionObject.REMOVE
-    #     co.id = name
-
-    #     self._planning_scene_publisher.publish(co)
